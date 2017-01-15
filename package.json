@@ -13,6 +13,10 @@
   },
   "author": "Patrick Pulka",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ermac0/ioc-container.git"
+  },
   "devDependencies": {
     "babel-eslint": "^7.1.1",
     "chai": "^3.5.0",

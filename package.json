@@ -1,0 +1,27 @@
+{
+  "name": "ioc-container",
+  "version": "1.0.0",
+  "description": "IoC container that delegates dependency resolution at runtime.",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "mocha tests",
+    "prebuild": "npm run test",
+    "build": "webpack && webpack --minimize"
+  },
+  "author": "Patrick Pulka",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-eslint": "^7.1.1",
+    "chai": "^3.5.0",
+    "decache": "^4.1.0",
+    "eslint": "^3.13.1",
+    "eslint-config-defaults": "^9.0.0",
+    "eslint-loader": "^1.6.1",
+    "eslint-plugin-react": "^6.9.0",
+    "json-loader": "^0.5.4",
+    "webpack": "^1.14.0"
+  }
+}

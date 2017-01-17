@@ -8,7 +8,7 @@ var DependencyNotFoundError = require('./dependencyNotFoundError');
 var ResolversNotFoundError = require('./resolversNotFoundError');
 var ArgumentError = require('./argumentError');
 
-function addResolver(resolver) {
+function addResolver(resolver, prepend) {
     if (!resolver || typeof resolver !== 'function') {
         throw new ArgumentError('Resolver must be a function.', 'resolver');
     }
@@ -20,7 +20,12 @@ function addResolver(resolver) {
         }
     }
 
-    _resolvers.push(resolver);
+    if (prepend === true) {
+        _resolvers.unshift(resolver);
+    }
+    else {
+        _resolvers.push(resolver);
+    }
 
     return _container;
 }

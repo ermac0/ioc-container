@@ -78,4 +78,21 @@ describe('ioc-container.resolve()', function () {
         
         expect(argCount).to.equal(3);
     });
+
+    it('should resolve dependency correctly', function () {
+        var sut = require('../src/ioc-container.js');
+        var expected = new Expected();
+        var resolver1 = function (key) {
+            switch (key.toString().toLowerCase()) {
+                case 'test':
+                    return expected;
+            }
+        };
+
+        sut.addResolver(resolver1);
+
+        var actual = sut.resolve('test');
+
+        expect(actual).to.equal(expected);
+    });
 });

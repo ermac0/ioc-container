@@ -1,6 +1,6 @@
 {
   "name": "ioc-container",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "IoC container that delegates dependency resolution at runtime.",
   "main": "index.js",
   "directories": {

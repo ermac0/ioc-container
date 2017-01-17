@@ -58,4 +58,29 @@ describe('ioc-container.addResolver()', function () {
 
         expect(actual).to.equal(sut);
     });
+
+    it('should add resolver at the top of the list if prepend parameter is true', function () {
+        var expected = new Expected();
+        var sut = require('../src/ioc-container.js');
+
+        var resolver1 = function (key) {
+            switch (key.toString().toLowerCase()) {
+                case 'test':
+                    return expected;
+            }
+        };
+
+        var resolver2 = function (key) {
+            switch (key.toString().toLowerCase()) {
+                case 'test':
+                    return {};
+            }
+        };
+
+        sut.addResolver(resolver2).addResolver(resolver1, true);
+        
+        var actual = sut.resolve('test');
+
+        expect(actual).to.equal(expected);
+    });
 });

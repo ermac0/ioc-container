@@ -49,13 +49,13 @@ module.exports =
 
 	var _resolvers = [], _container;
 
-	var _version =  true ? ("1.0.0") : '';
+	var _version =  true ? ("1.0.1") : '';
 
 	var DependencyNotFoundError = __webpack_require__(1);
 	var ResolversNotFoundError = __webpack_require__(2);
 	var ArgumentError = __webpack_require__(3);
 
-	function addResolver(resolver) {
+	function addResolver(resolver, prepend) {
 	    if (!resolver || typeof resolver !== 'function') {
 	        throw new ArgumentError('Resolver must be a function.', 'resolver');
 	    }
@@ -67,7 +67,12 @@ module.exports =
 	        }
 	    }
 
-	    _resolvers.push(resolver);
+	    if (prepend === true) {
+	        _resolvers.unshift(resolver);
+	    }
+	    else {
+	        _resolvers.push(resolver);
+	    }
 
 	    return _container;
 	}
